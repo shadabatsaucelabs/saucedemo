@@ -51,7 +51,7 @@ public class SwagLabsLoginPage {
     public String verifyLoginPage() {
     	WebDriverWait wait = new WebDriverWait(driver, 30);
     	wait.until(ExpectedConditions.visibilityOf(loginButton));
-    	System.out.println("Value is: "+loginButton.getText());
+    	//System.out.println("Value is: "+loginButton.getText());
         return loginButton.getText();
     }
 

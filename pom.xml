@@ -65,6 +65,7 @@
    					</suiteXmlFiles>
                 	<parallel>classes</parallel>
           			<threadCount>40</threadCount>
+          			<testFailureIgnore>true</testFailureIgnore>
                     <redirectTestOutputToFile>false</redirectTestOutputToFile>
                 </configuration>
             </plugin>

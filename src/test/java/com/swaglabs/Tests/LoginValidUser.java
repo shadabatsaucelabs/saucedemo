@@ -12,7 +12,6 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.swaglabs.Pages.LoginPage;
-import com.swaglabs.Pages.SwagLabsCartPage;
 import com.swaglabs.Pages.SwagLabsInventoryPage;
 
 
@@ -22,10 +21,10 @@ import java.rmi.UnexpectedException;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Created by Shadab Siddiqui on 11/21/18.
+ * Created by Shadab Siddiqui on 11/21/18.	
  */
 
-public class LaunchSwagLabs extends TestBase {
+public class LoginValidUser extends TestBase {
 
     /**
      * Runs a simple test verifying Sign In.
@@ -34,7 +33,7 @@ public class LaunchSwagLabs extends TestBase {
      * @throws InterruptedException 
      */
     @Test(dataProvider = "hardCodedBrowsers")
-    public void LaunchSwagLabsTest(String browser, String version, String os, Method method)
+    public void LoginTest(String browser, String version, String os, Method method)
             throws MalformedURLException, InvalidElementStateException, UnexpectedException, InterruptedException {
 
         //create webdriver session
@@ -46,11 +45,12 @@ public class LaunchSwagLabs extends TestBase {
 
         this.annotate("Visiting Swag Labs Login page...");
         LoginPage page = LoginPage.visitPage(driver);
-        //Assert.assertTrue(page.verifyLoginPage().contains("LOGIN"));
-        AssertJUnit.assertTrue(page.verifyLoginPage());
-        
-        
-        
+
+        this.annotate("Greet Sign In To Swag Labs Page...");
+        SwagLabsInventoryPage inventory = page.enterCredentials("standard_user", "secret_sauce");
+         
+        this.annotate("View Product Inventory...");
+        AssertJUnit.assertTrue(inventory.viewInventory().contains("Products"));
            
     }
 

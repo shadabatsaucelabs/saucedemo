@@ -6,7 +6,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class SwagLabsLoginPage {
+public class LoginPage {
 
     
     
@@ -18,17 +18,22 @@ public class SwagLabsLoginPage {
 
     @FindBy(xpath = "//input[@value='LOGIN']")
     private WebElement loginButton; 
+    
+    @FindBy(xpath = "//h3[@data-test='error']")
+    private WebElement lockedOutMessage; 
+    
+  
 
     public WebDriver driver;
     public static String url = "https://www.saucedemo.com/";
 
-    public static SwagLabsLoginPage visitPage(WebDriver driver) {
-    	SwagLabsLoginPage page = new SwagLabsLoginPage(driver);
+    public static LoginPage visitPage(WebDriver driver) {
+    	LoginPage page = new LoginPage(driver);
         page.visitPage();
         return page;
     }
 
-    public SwagLabsLoginPage(WebDriver driver) {
+    public LoginPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
@@ -48,11 +53,18 @@ public class SwagLabsLoginPage {
         return PageFactory.initElements(driver, SwagLabsInventoryPage.class);
     }
     
-    public String verifyLoginPage() {
+    public boolean verifyLoginPage() {
     	WebDriverWait wait = new WebDriverWait(driver, 30);
     	wait.until(ExpectedConditions.visibilityOf(loginButton));
     	//System.out.println("Value is: "+loginButton.getText());
-        return loginButton.getText();
+        return true;
+    }
+    
+    public String verifyLockedOutMessage() {
+    	WebDriverWait wait = new WebDriverWait(driver, 30);
+    	wait.until(ExpectedConditions.visibilityOf(lockedOutMessage));
+    	System.out.println(lockedOutMessage.getText());
+        return lockedOutMessage.getText();
     }
 
 }

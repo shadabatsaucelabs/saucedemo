@@ -14,6 +14,21 @@ public class SwagLabsInventoryPage {
     @FindBy(xpath = "//div//div[@class='inventory_list']//div[1]//div[3]//button[1]")
     private WebElement addToCartBackpackButton;
     
+    @FindBy(xpath = "//div//div[@class='inventory_list']//div[3]//div[3]//button[1]")
+    private WebElement addToCartBoltTshirtButton;  
+    
+    @FindBy(xpath = "//div//div[@class='inventory_list']//div[5]//div[3]//button[1]")
+    private WebElement addToCartOnesieButton;  
+    
+    @FindBy(xpath = "//div//div[@class='inventory_list']//div[6]//div[3]//button[1]")
+    private WebElement addToCartTshirtRedButton;
+    
+    @FindBy(xpath = "//div//div[@class='inventory_list']//div[4]//div[3]//button[1]")
+    private WebElement addToCartFleeceJacketButton;
+    
+    @FindBy(xpath = "//div//div[@class='inventory_list']//div[2]//div[3]//button[1]")
+    private WebElement addToCartBikeLightButton;
+    
     @FindBy(xpath = "//*[contains(@class,'svg-inline--fa fa-shopping-cart fa-w-18 fa-3x')]")
     private WebElement cartIcon;
     
@@ -48,6 +63,37 @@ public class SwagLabsInventoryPage {
     	addToCartBackpackButton.click();
   	    
     }
+    
+    public void clickAddToCartBoltTshirt() {
+    	
+    	addToCartBoltTshirtButton.click();
+  	    
+    }
+    
+    public void clickAddToCartOnesie() {
+    	
+    	addToCartOnesieButton.click();
+  	    
+    }
+    
+    public void clickAddToCartTshirtRed() {
+    	
+    	addToCartTshirtRedButton.click();
+  	    
+    }
+
+    public void clickAddToCartFleeceJacket() {
+	
+    	addToCartFleeceJacketButton.click();
+	    
+}
+
+    public void clickAddToCartBikeLight() {
+	
+    	addToCartBikeLightButton.click();
+	    
+}
+
     
     public SwagLabsCartPage goToCart() {
     	

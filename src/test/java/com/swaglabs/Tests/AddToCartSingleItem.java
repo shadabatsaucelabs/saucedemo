@@ -10,11 +10,9 @@ import org.openqa.selenium.InvalidElementStateException;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
+import com.swaglabs.Pages.LoginPage;
 import com.swaglabs.Pages.SwagLabsCartPage;
 import com.swaglabs.Pages.SwagLabsInventoryPage;
-import com.swaglabs.Pages.SwagLabsLoginPage;
-
 import java.lang.reflect.Method;
 import java.net.MalformedURLException;
 import java.rmi.UnexpectedException;
@@ -24,7 +22,7 @@ import java.util.concurrent.TimeUnit;
  * Created by Shadab Siddiqui on 11/21/18.
  */
 
-public class AddToCartSwagLabs extends TestBase {
+public class AddToCartSingleItem extends TestBase {
 
     /**
      * Runs a simple test verifying Sign In.
@@ -33,7 +31,7 @@ public class AddToCartSwagLabs extends TestBase {
      * @throws InterruptedException 
      */
     @Test(dataProvider = "hardCodedBrowsers")
-    public void AddToCartTest(String browser, String version, String os, Method method)
+    public void AddToCartSingleItemTest(String browser, String version, String os, Method method)
             throws MalformedURLException, InvalidElementStateException, UnexpectedException, InterruptedException {
 
         //create webdriver session
@@ -44,22 +42,22 @@ public class AddToCartSwagLabs extends TestBase {
   	    driver.manage().window().maximize();
 
         this.annotate("Visiting Swag Labs Login page...");
-        SwagLabsLoginPage page = SwagLabsLoginPage.visitPage(driver);
+        LoginPage loginPage = LoginPage.visitPage(driver);
         
         this.annotate("Greet Sign In To Swag Labs Page...");
-        SwagLabsInventoryPage inventory = page.enterCredentials("standard_user", "secret_sauce");
+        SwagLabsInventoryPage inventoryPage = loginPage.enterCredentials("standard_user", "secret_sauce");
          
         this.annotate("View Product Inventory...");
-        AssertJUnit.assertTrue(inventory.viewInventory().contains("Products"));
+        AssertJUnit.assertTrue(inventoryPage.viewInventory().contains("Products"));
          
         this.annotate("Add To Cart Backpack...");
-        inventory.clickAddToCartBackpack();
+        inventoryPage.clickAddToCartBackpack();
          
         this.annotate("Go To Cart...");
-        SwagLabsCartPage cart = inventory.goToCart();
+        SwagLabsCartPage cartPage = inventoryPage.goToCart();
          
-        this.annotate("View Items In Cart...");
-        AssertJUnit.assertTrue(cart.checkBackpackinCart().contains("Sauce Labs Backpack"));
+        this.annotate("Verify Backpack Item In Cart...");
+        AssertJUnit.assertTrue(cartPage.verifyBackpackinCart().contains("Sauce Labs Backpack"));
            
     }
 

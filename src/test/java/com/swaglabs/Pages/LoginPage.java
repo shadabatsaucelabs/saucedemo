@@ -25,7 +25,7 @@ public class LoginPage {
   
 
     public WebDriver driver;
-    public static String url = "https://www.saucedemo.com/";
+    public static String url = "http://www.saucedemo.com/";
 
     public static LoginPage visitPage(WebDriver driver) {
     	LoginPage page = new LoginPage(driver);
@@ -44,13 +44,13 @@ public class LoginPage {
 
     
     
-    public SwagLabsInventoryPage enterCredentials(String username, String password) throws InterruptedException {
+    public InventoryPage enterCredentials(String username, String password) throws InterruptedException {
     	//Thread.sleep(5000);
     	usernameTextBox.sendKeys(username);
     	//Thread.sleep(1000);
     	passwordTextBox.sendKeys(password);
         loginButton.click();
-        return PageFactory.initElements(driver, SwagLabsInventoryPage.class);
+        return PageFactory.initElements(driver, InventoryPage.class);
     }
     
     public boolean verifyLoginPage() {

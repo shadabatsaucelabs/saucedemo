@@ -13,10 +13,8 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.swaglabs.Pages.InventoryPage;
 import com.swaglabs.Pages.LoginPage;
-import com.swaglabs.Pages.SwagLabsInventoryPage;
-
-
 import java.lang.reflect.Method;
 import java.net.MalformedURLException;
 import java.rmi.UnexpectedException;
@@ -42,14 +40,14 @@ public class LoginValidUser extends TestBase {
         this.createDriver(browser, version, os, method.getName());
         WebDriver driver = this.getWebDriver();
         
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
   	    driver.manage().window().maximize();
 
         this.annotate("Visiting Swag Labs Login page...");
         LoginPage page = LoginPage.visitPage(driver);
 
         this.annotate("Greet Sign In To Swag Labs Page...");
-        SwagLabsInventoryPage inventory = page.enterCredentials("standard_user", "secret_sauce");
+        InventoryPage inventory = page.enterCredentials("standard_user", "secret_sauce");
          
         this.annotate("View Product Inventory...");
         AssertJUnit.assertTrue(inventory.viewInventory().contains("Products"));

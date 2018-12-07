@@ -13,10 +13,8 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.swaglabs.Pages.InventoryPage;
 import com.swaglabs.Pages.LoginPage;
-import com.swaglabs.Pages.SwagLabsInventoryPage;
-
-
 import java.lang.reflect.Method;
 import java.net.MalformedURLException;
 import java.rmi.UnexpectedException;
@@ -49,7 +47,7 @@ public class LoginInvalidUser extends TestBase {
         LoginPage page = LoginPage.visitPage(driver);
 
         this.annotate("Greet Sign In To Swag Labs Page...");
-        SwagLabsInventoryPage inventory = page.enterCredentials("locked_out_user", "bogus");
+        InventoryPage inventory = page.enterCredentials("locked_out_user", "bogus");
          
         this.annotate("Verify Invalid User Message...");
         AssertJUnit.assertTrue(page.verifyLockedOutMessage().contains("do not match"));

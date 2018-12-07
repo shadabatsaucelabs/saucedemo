@@ -1,7 +1,7 @@
+
+
+
 package com.swaglabs.Tests;
-
-
-
 import org.testng.annotations.Test;
 import org.testng.AssertJUnit;
 import org.testng.annotations.Test;
@@ -13,14 +13,12 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.swaglabs.Pages.CartPage;
 import com.swaglabs.Pages.CheckoutOverviewPage;
 import com.swaglabs.Pages.CheckoutPage;
+import com.swaglabs.Pages.InventoryPage;
 import com.swaglabs.Pages.LoginPage;
 import com.swaglabs.Pages.OrderConfirmationPage;
-import com.swaglabs.Pages.SwagLabsCartPage;
-import com.swaglabs.Pages.SwagLabsInventoryPage;
-
-
 import java.lang.reflect.Method;
 import java.net.MalformedURLException;
 import java.rmi.UnexpectedException;
@@ -53,7 +51,7 @@ public class CompleteOrder extends TestBase {
         LoginPage page = LoginPage.visitPage(driver);
         
         this.annotate("Greet Sign In To Swag Labs Page...");
-        SwagLabsInventoryPage inventory = page.enterCredentials("standard_user", "secret_sauce");
+        InventoryPage inventory = page.enterCredentials("standard_user", "secret_sauce");
          
         this.annotate("View Product Inventory...");
         AssertJUnit.assertTrue(inventory.viewInventory().contains("Products"));
@@ -77,7 +75,7 @@ public class CompleteOrder extends TestBase {
         inventory.clickAddToCartBikeLight();
         
         this.annotate("Go To Cart...");
-        SwagLabsCartPage cart = inventory.goToCart();
+        CartPage cart = inventory.goToCart();
          
         this.annotate("Verify Cart Page...");
         AssertJUnit.assertTrue(cart.verifyBackpackinCart().contains("Sauce Labs Backpack"));

@@ -6,7 +6,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class SwagLabsCartPage {
+public class CartPage {
 
    // @FindBy(xpath = "//div[@class='inventory_item_name']")
     //private WebElement backpackLabel;
@@ -35,7 +35,7 @@ public class SwagLabsCartPage {
     public WebDriver driver;
     
 
-    public SwagLabsCartPage(WebDriver driver) {
+    public CartPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }

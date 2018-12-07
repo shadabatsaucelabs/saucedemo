@@ -14,10 +14,6 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.swaglabs.Pages.LoginPage;
-import com.swaglabs.Pages.SwagLabsCartPage;
-import com.swaglabs.Pages.SwagLabsInventoryPage;
-
-
 import java.lang.reflect.Method;
 import java.net.MalformedURLException;
 import java.rmi.UnexpectedException;

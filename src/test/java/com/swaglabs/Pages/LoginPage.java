@@ -63,7 +63,7 @@ public class LoginPage {
     public String verifyLockedOutMessage() {
     	WebDriverWait wait = new WebDriverWait(driver, 30);
     	wait.until(ExpectedConditions.visibilityOf(lockedOutMessage));
-    	System.out.println(lockedOutMessage.getText());
+    	//System.out.println(lockedOutMessage.getText());
         return lockedOutMessage.getText();
     }
 

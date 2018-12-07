@@ -20,6 +20,11 @@ public class CheckoutOverviewPage {
     @FindBy(xpath = "//div[@class='summary_total_label']")
     private WebElement totalLabel; 
     
+    @FindBy(xpath = "//a[@class='cart_checkout_link']")
+    private WebElement finishButton;
+    
+    
+    
     public WebDriver driver;
     
 
@@ -55,6 +60,12 @@ public class CheckoutOverviewPage {
     	wait.until(ExpectedConditions.visibilityOf(totalLabel));
     	//System.out.println(totalLabel.getText());
         return totalLabel.getText();
+    }
+    
+    public OrderConfirmationPage clickFinish() {
+    	finishButton.click();
+    	return PageFactory.initElements(driver, OrderConfirmationPage.class);
+  	    
     }
 
   

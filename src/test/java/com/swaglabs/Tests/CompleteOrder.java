@@ -16,6 +16,7 @@ import org.testng.annotations.Test;
 import com.swaglabs.Pages.CheckoutOverviewPage;
 import com.swaglabs.Pages.CheckoutPage;
 import com.swaglabs.Pages.LoginPage;
+import com.swaglabs.Pages.OrderConfirmationPage;
 import com.swaglabs.Pages.SwagLabsCartPage;
 import com.swaglabs.Pages.SwagLabsInventoryPage;
 
@@ -29,7 +30,7 @@ import java.util.concurrent.TimeUnit;
  * Created by Shadab Siddiqui on 11/21/18.
  */
 
-public class ValidateOrderTotals extends TestBase {
+public class CompleteOrder extends TestBase {
 
     /**
      * Runs a simple test verifying Sign In.
@@ -38,14 +39,14 @@ public class ValidateOrderTotals extends TestBase {
      * @throws InterruptedException 
      */
     @Test(dataProvider = "hardCodedBrowsers")
-    public void ValidateOrderTotalsTest(String browser, String version, String os, Method method)
+    public void CompleteOrderTest(String browser, String version, String os, Method method)
             throws MalformedURLException, InvalidElementStateException, UnexpectedException, InterruptedException {
 
         //create webdriver session
         this.createDriver(browser, version, os, method.getName());
         WebDriver driver = this.getWebDriver();
         
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
   	    driver.manage().window().maximize();
 
         this.annotate("Visiting Swag Labs Login page...");
@@ -105,6 +106,15 @@ public class ValidateOrderTotals extends TestBase {
         
         this.annotate("Verify Total...");
         AssertJUnit.assertTrue(overviewPage.verifyTotal().contains("$140.34"));
+        
+        this.annotate("Continue to Order Confirmation Page...");
+        OrderConfirmationPage confirmationPage = overviewPage.clickFinish();
+        
+        this.annotate("Verify Final Order Confirmation Page...");
+        AssertJUnit.assertTrue(confirmationPage.verfiyOrderConfirmationPage());
+        
+        this.annotate("Verify Thank you message...");
+        AssertJUnit.assertTrue(confirmationPage.verifyThankyouMessage().contains("THANK YOU FOR YOUR ORDER"));
         
     }
 

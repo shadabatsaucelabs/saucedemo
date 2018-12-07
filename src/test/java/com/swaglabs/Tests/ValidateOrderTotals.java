@@ -6,6 +6,8 @@ import org.testng.annotations.Test;
 import org.testng.AssertJUnit;
 import org.testng.annotations.Test;
 import org.testng.AssertJUnit;
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import org.openqa.selenium.InvalidElementStateException;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -84,7 +86,7 @@ public class ValidateOrderTotals extends TestBase {
         CheckoutPage checkoutPage = cart.checkout();
         
         this.annotate("Asserting that we are on Checkout page...");
-        Assert.assertTrue(checkoutPage.verfiyCheckoutPage());
+        AssertJUnit.assertTrue(checkoutPage.verfiyCheckoutPage());
         
         this.annotate("Enter User details...");
         checkoutPage.enterUserDetails("Tom", "Jones", "12345");

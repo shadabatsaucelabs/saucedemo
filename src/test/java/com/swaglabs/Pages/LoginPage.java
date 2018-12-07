@@ -25,7 +25,7 @@ public class LoginPage {
   
 
     public WebDriver driver;
-    public static String url = "http://www.saucedemo.com/";
+    public static String url = "https://www.saucedemo.com/";
 
     public static LoginPage visitPage(WebDriver driver) {
     	LoginPage page = new LoginPage(driver);

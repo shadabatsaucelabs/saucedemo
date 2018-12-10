@@ -45,10 +45,11 @@ public class LoginPage {
     
     
     public InventoryPage enterCredentials(String username, String password) throws InterruptedException {
-    	//Thread.sleep(5000);
+    	//Thread.sleep(1000);
     	usernameTextBox.sendKeys(username);
     	//Thread.sleep(1000);
     	passwordTextBox.sendKeys(password);
+    	//Thread.sleep(4000);
         loginButton.click();
         return PageFactory.initElements(driver, InventoryPage.class);
     }

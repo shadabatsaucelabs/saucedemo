@@ -33,14 +33,14 @@ public class LoginValidUser extends TestBase {
      * @throws InterruptedException 
      */
     @Test(dataProvider = "hardCodedBrowsers")
-    public void LoginTest(String browser, String version, String os, Method method)
+    public void LoginValidUserTest(String browser, String version, String os, Method method)
             throws MalformedURLException, InvalidElementStateException, UnexpectedException, InterruptedException {
 
         //create webdriver session
         this.createDriver(browser, version, os, method.getName());
         WebDriver driver = this.getWebDriver();
         
-        driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
   	    driver.manage().window().maximize();
 
         this.annotate("Visiting Swag Labs Login page...");
@@ -48,7 +48,7 @@ public class LoginValidUser extends TestBase {
 
         this.annotate("Greet Sign In To Swag Labs Page...");
         InventoryPage inventory = page.enterCredentials("standard_user", "secret_sauce");
-         
+        
         this.annotate("View Product Inventory...");
         AssertJUnit.assertTrue(inventory.viewInventory().contains("Products"));
            

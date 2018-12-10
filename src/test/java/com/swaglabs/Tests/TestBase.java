@@ -31,13 +31,13 @@ public class TestBase  {
 
     public String buildTag = System.getenv("BUILD_TAG");
 
-    //public String username = System.getenv("SAUCE_USERNAME");
+    public String username = System.getenv("SAUCE_USERNAME");
 
-    //public String accesskey = System.getenv("SAUCE_ACCESS_KEY");
+    public String accesskey = System.getenv("SAUCE_ACCESS_KEY");
     
-    public String username = "shadab.siddiqui";
+    //public String username = "shadab.siddiqui";
 
-    public String accesskey = "1911ee06-9819-40b2-9ff7-6c902c1154ee";
+    //public String accesskey = "a5657a31-bdf3-46f9-af0a-4c32eb3b3b9c";
 
 
     /**

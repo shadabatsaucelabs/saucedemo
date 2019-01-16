@@ -34,10 +34,6 @@ public class TestBase  {
     public String username = System.getenv("SAUCE_USERNAME");
 
     public String accesskey = System.getenv("SAUCE_ACCESS_KEY");
-    
-    //public String username = "shadab.siddiqui";
-
-    //public String accesskey = "a5657a31-bdf3-46f9-af0a-4c32eb3b3b9c";
 
 
     /**
@@ -62,7 +58,7 @@ public class TestBase  {
                 new Object[]{"MicrosoftEdge", "16.16299", "Windows 10"},
                 new Object[]{"firefox", "49.0", "Windows 10"},
                 new Object[]{"internet explorer", "11.0", "Windows 7"},
-                new Object[]{"safari", "10.0", "OS X 10.11"},
+                new Object[]{"safari", "9.0", "OS X 10.11"},
                 new Object[]{"chrome", "54.0", "OS X 10.10"},
                 new Object[]{"firefox", "latest-1", "Windows 7"},
         };

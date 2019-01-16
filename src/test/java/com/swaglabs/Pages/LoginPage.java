@@ -22,6 +22,10 @@ public class LoginPage {
     @FindBy(xpath = "//h3[@data-test='error']")
     private WebElement lockedOutMessage; 
     
+    @FindBy(xpath = "//pre[@id='login_credentials']")
+    private WebElement loginCredentials; 
+    
+  
   
 
     public WebDriver driver;
@@ -50,7 +54,9 @@ public class LoginPage {
     	//Thread.sleep(1000);
     	passwordTextBox.sendKeys(password);
     	//Thread.sleep(4000);
-        loginButton.click();
+    	//loginCredentials.click();
+    	//Thread.sleep(4000);
+    	loginButton.click();
         return PageFactory.initElements(driver, InventoryPage.class);
     }
     

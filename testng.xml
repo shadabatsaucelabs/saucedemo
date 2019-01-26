@@ -11,6 +11,7 @@
       <class name="com.swaglabs.Tests.AddToCartMultipleItems"/>
       <class name="com.swaglabs.Tests.ValidateOrderTotals"/>
       <class name="com.swaglabs.Tests.LoginValidUser"/>
+      <class name="com.swaglabs.Tests.CompleteOrder"/>
       <class name="com.swaglabs.Tests.TestBase"/>
     </classes>
   </test> <!-- Test -->
